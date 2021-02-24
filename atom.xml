@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Cloud-oriented Life</title>
+  <icon>https://cloudolife.com/icon.png</icon>
+  <subtitle>Cloud Native Technology Improves Lives</subtitle>
+  <link href="https://cloudolife.com/atom.xml" rel="self"/>
+  
+  <link href="https://cloudolife.com/"/>
+  <updated>2021-02-24T15:08:47.648Z</updated>
+  <id>https://cloudolife.com/</id>
+  
+  <author>
+    <name>CloudoLife</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Automation Testing] Use Docker or Docker Compose to run Playwright to test Web applications automatically</title>
+    <link href="https://cloudolife.com/2021/02/21/Testing/Automation-Testing/Playwright/Use-Docker-or-Docker-Compose-to-run-Playwright-to-test-Web-applications-automatically/"/>
+    <id>https://cloudolife.com/2021/02/21/Testing/Automation-Testing/Playwright/Use-Docker-or-Docker-Compose-to-run-Playwright-to-test-Web-applications-automatically/</id>
+    <published>2021-02-21T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;col-playwright-docker&quot;&gt;&lt;a href=&quot;#col-playwright-docker&quot; class=&quot;headerlink&quot; title=&quot;col-playwright-docker&quot;&gt;&lt;/a&gt;col-playwright-docker&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/CloudoLife/col-playwright-docker&quot;&gt;col-playwright-docker&lt;/a&gt; is a Docker image to use &lt;a href=&quot;https://playwright.dev/&quot;&gt;Fast and reliable end-to-end testing for modern web apps | Playwright - https://playwright.dev/&lt;/a&gt; to test Web applications automatically.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Testing" scheme="https://cloudolife.com/categories/Testing/"/>
+    
+    <category term="Automation Testing (Test Automation)" scheme="https://cloudolife.com/categories/Testing/Automation-Testing-Test-Automation/"/>
+    
+    <category term="Playwright" scheme="https://cloudolife.com/categories/Testing/Automation-Testing-Test-Automation/Playwright/"/>
+    
+    
+    <category term="Docker" scheme="https://cloudolife.com/tags/Docker/"/>
+    
+    <category term="Docker Compose" scheme="https://cloudolife.com/tags/Docker-Compose/"/>
+    
+    <category term="Docker Hub" scheme="https://cloudolife.com/tags/Docker-Hub/"/>
+    
+    <category term="Playwright" scheme="https://cloudolife.com/tags/Playwright/"/>
+    
+    <category term="End-to-End Testing (E2E Testing)" scheme="https://cloudolife.com/tags/End-to-End-Testing-E2E-Testing/"/>
+    
+    <category term="Testing" scheme="https://cloudolife.com/tags/Testing/"/>
+    
+    <category term="Automation Testing (Test Automation)" scheme="https://cloudolife.com/tags/Automation-Testing-Test-Automation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Weekly] 2021-02-20</title>
+    <link href="https://cloudolife.com/2021/02/20/Weekly/2021-02-20/"/>
+    <id>https://cloudolife.com/2021/02/20/Weekly/2021-02-20/</id>
+    <published>2021-02-20T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.652Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Cloud-oriented-Life-Weekly-2021-02-20&quot;&gt;&lt;a href=&quot;#Cloud-oriented-Life-Weekly-2021-02-20&quot; class=&quot;headerlink&quot; title=&quot;[Cloud-oriented Life Weekly] 2021-02-20&quot;&gt;&lt;/a&gt;[Cloud-oriented Life Weekly] 2021-02-20&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="Weekly" scheme="https://cloudolife.com/categories/Weekly/"/>
+    
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/tags/Golang-Go/"/>
+    
+    <category term="miniprogram-automator" scheme="https://cloudolife.com/tags/miniprogram-automator/"/>
+    
+    <category term="Playwright" scheme="https://cloudolife.com/tags/Playwright/"/>
+    
+    <category term="Weekly" scheme="https://cloudolife.com/tags/Weekly/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Use hexo-theme-next within Hexo</title>
+    <link href="https://cloudolife.com/2021/02/20/Site/Hexo/Use-hexo-theme-next-within%20Hexo/"/>
+    <id>https://cloudolife.com/2021/02/20/Site/Hexo/Use-hexo-theme-next-within%20Hexo/</id>
+    <published>2021-02-20T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;hexo-theme-next&quot;&gt;&lt;a href=&quot;#hexo-theme-next&quot; class=&quot;headerlink&quot; title=&quot;hexo-theme-next&quot;&gt;&lt;/a&gt;hexo-theme-next&lt;/h1&gt;&lt;p&gt;NexT is a high</summary>
+        
+      
+    
+    
+    
+    <category term="Site" scheme="https://cloudolife.com/categories/Site/"/>
+    
+    <category term="Hexo" scheme="https://cloudolife.com/categories/Site/Hexo/"/>
+    
+    
+    <category term="Site" scheme="https://cloudolife.com/tags/Site/"/>
+    
+    <category term="Blog" scheme="https://cloudolife.com/tags/Blog/"/>
+    
+    <category term="Hexo" scheme="https://cloudolife.com/tags/Hexo/"/>
+    
+    <category term="hexo-theme-next" scheme="https://cloudolife.com/tags/hexo-theme-next/"/>
+    
+    <category term="Theme" scheme="https://cloudolife.com/tags/Theme/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go 1.16 is released</title>
+    <link href="https://cloudolife.com/2021/02/17/Programming-Language/Golang/Go-1-16-is-released/"/>
+    <id>https://cloudolife.com/2021/02/17/Programming-Language/Golang/Go-1-16-is-released/</id>
+    <published>2021-02-17T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Go-1-16&quot;&gt;&lt;a href=&quot;#Go-1-16&quot; class=&quot;headerlink&quot; title=&quot;Go 1.16&quot;&gt;&lt;/a&gt;Go 1.16&lt;/h1&gt;&lt;p&gt;Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.&lt;/p&gt;
+&lt;p&gt;The Go team is very happy to announce the release of Go 1.16 at 16 February 2021. You can get it from the download page &lt;a href=&quot;https://golang.org/dl/&quot;&gt;Downloads - The Go Programming Language - https://golang.org/dl/&lt;/a&gt;.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/"/>
+    
+    <category term="Awesome Go" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/Awesome-Go/"/>
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/tags/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/tags/Golang-Go/"/>
+    
+    <category term="//go:embed" scheme="https://cloudolife.com/tags/go-embed/"/>
+    
+    <category term="Go 1.16" scheme="https://cloudolife.com/tags/Go-1-16/"/>
+    
+    <category term="Awesome Go" scheme="https://cloudolife.com/tags/Awesome-Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Use //go:embed in Go 1.16</title>
+    <link href="https://cloudolife.com/2021/02/17/Programming-Language/Golang/Use-go-embed-in-Go-1-16/"/>
+    <id>https://cloudolife.com/2021/02/17/Programming-Language/Golang/Use-go-embed-in-Go-1-16/</id>
+    <published>2021-02-17T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;go-embed&quot;&gt;&lt;a href=&quot;#go-embed&quot; class=&quot;headerlink&quot; title=&quot;//go:embed&quot;&gt;&lt;/a&gt;//go:embed&lt;/h1&gt;&lt;p&gt;Go 1.16 introduced a new &lt;code&gt;//go:embed&lt;/code&gt; directive that allows you to include the contents of arbitrary files and directories in your Go application.&lt;/p&gt;
+&lt;p&gt;The basic idea of embedding is that by adding a special comment to your code, Go will know to include a file or files. The comment should look like &lt;code&gt;//go:embed FILENAME(S)&lt;/code&gt; and be followed by a variable of the type you want to embed: &lt;code&gt;string&lt;/code&gt; or &lt;code&gt;[]byte&lt;/code&gt; for an individual file or &lt;code&gt;embed.FS&lt;/code&gt; for a group of files. &lt;/p&gt;
+&lt;p&gt;The go:embed directive understands Go file globs, so patterns like files/&lt;em&gt;.html will also work (but not **/&lt;/em&gt;.html recursive globbing).&lt;/p&gt;
+&lt;p&gt;You can read the official docs &lt;a href=&quot;https://pkg.go.dev/embed&quot;&gt;embed · pkg.go.dev - https://pkg.go.dev/embed&lt;/a&gt; for a complete technical explanation, so here let’s take a look at some examples to see what’s possible.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/"/>
+    
+    <category term="Exception Error Handling" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/Exception-Error-Handling/"/>
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/tags/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/tags/Golang-Go/"/>
+    
+    <category term="//go:embed" scheme="https://cloudolife.com/tags/go-embed/"/>
+    
+    <category term="Go 1.16" scheme="https://cloudolife.com/tags/Go-1-16/"/>
+    
+    <category term="Exception Error Handling" scheme="https://cloudolife.com/tags/Exception-Error-Handling/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Use GitHub action to publishing Docker image to Docker Hub repository</title>
+    <link href="https://cloudolife.com/2021/02/13/GitHub/Use-GitHub-action-to-publish-Docker-image-to-Docker-Hub-repository/"/>
+    <id>https://cloudolife.com/2021/02/13/GitHub/Use-GitHub-action-to-publish-Docker-image-to-Docker-Hub-repository/</id>
+    <published>2021-02-13T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.644Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;GitHub-action&quot;&gt;&lt;a href=&quot;#GitHub-action&quot; class=&quot;headerlink&quot; title=&quot;GitHub action&quot;&gt;&lt;/a&gt;GitHub action&lt;/h1&gt;&lt;p&gt;Each time you push the code or create a new release on GitHub, you can trigger a workflow to publish your image. The workflow in the example below runs when the push event triggers.&lt;/p&gt;
+&lt;p&gt;In the example workflow below, we use the Docker build-push-action action to build the Docker image and, if the build succeeds, push the built image to Docker Hub.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="GitHub" scheme="https://cloudolife.com/categories/GitHub/"/>
+    
+    <category term="GitHub Action" scheme="https://cloudolife.com/categories/GitHub/GitHub-Action/"/>
+    
+    
+    <category term="Docker" scheme="https://cloudolife.com/tags/Docker/"/>
+    
+    <category term="Git" scheme="https://cloudolife.com/tags/Git/"/>
+    
+    <category term="GitHub" scheme="https://cloudolife.com/tags/GitHub/"/>
+    
+    <category term="DevOps" scheme="https://cloudolife.com/tags/DevOps/"/>
+    
+    <category term="Continuous Integration (CI)" scheme="https://cloudolife.com/tags/Continuous-Integration-CI/"/>
+    
+    <category term="Docker Hub" scheme="https://cloudolife.com/tags/Docker-Hub/"/>
+    
+    <category term="GitHub Action" scheme="https://cloudolife.com/tags/GitHub-Action/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Automation Testing] Use miniprogram-automator and Wechat Devtools to test Miniprogram automatically</title>
+    <link href="https://cloudolife.com/2021/02/13/Testing/Automation-Testing/miniprogram-automator/Use-miniprogram-automator-and-Wechat-Devtools-to-test-Miniprogram-automatically/"/>
+    <id>https://cloudolife.com/2021/02/13/Testing/Automation-Testing/miniprogram-automator/Use-miniprogram-automator-and-Wechat-Devtools-to-test-Miniprogram-automatically/</id>
+    <published>2021-02-13T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.652Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;miniprogram-automator&quot;&gt;&lt;a href=&quot;#miniprogram-automator&quot; class=&quot;headerlink&quot; title=&quot;miniprogram-automator&quot;&gt;&lt;/a&gt;miniprogram-automator&lt;/h1&gt;&lt;p&gt;miniprogram-automator is the Miniprogram Automation SDK provides developers with a set of solutions for manipulating Miniprograms through external scripts and Wechat Devtools so as to achieve the purpose of Miniprogram automation testing.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Testing" scheme="https://cloudolife.com/categories/Testing/"/>
+    
+    <category term="Automation Testing (Test Automation)" scheme="https://cloudolife.com/categories/Testing/Automation-Testing-Test-Automation/"/>
+    
+    <category term="Miniprogram" scheme="https://cloudolife.com/categories/Testing/Automation-Testing-Test-Automation/Miniprogram/"/>
+    
+    <category term="miniprogram-automator" scheme="https://cloudolife.com/categories/Testing/Automation-Testing-Test-Automation/Miniprogram/miniprogram-automator/"/>
+    
+    
+    <category term="JavaScript" scheme="https://cloudolife.com/tags/JavaScript/"/>
+    
+    <category term="Node.js" scheme="https://cloudolife.com/tags/Node-js/"/>
+    
+    <category term="macOS" scheme="https://cloudolife.com/tags/macOS/"/>
+    
+    <category term="miniprogram-automator" scheme="https://cloudolife.com/tags/miniprogram-automator/"/>
+    
+    <category term="Homebrew (brew)" scheme="https://cloudolife.com/tags/Homebrew-brew/"/>
+    
+    <category term="Testing" scheme="https://cloudolife.com/tags/Testing/"/>
+    
+    <category term="Automation Testing (Test Automation)" scheme="https://cloudolife.com/tags/Automation-Testing-Test-Automation/"/>
+    
+    <category term="Node Package Manager (npm)" scheme="https://cloudolife.com/tags/Node-Package-Manager-npm/"/>
+    
+    <category term="Wechat Devtools" scheme="https://cloudolife.com/tags/Wechat-Devtools/"/>
+    
+    <category term="Wechat" scheme="https://cloudolife.com/tags/Wechat/"/>
+    
+    <category term="Miniprogram" scheme="https://cloudolife.com/tags/Miniprogram/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[macOS] Install HP Easy Start (HP Printer Software and Driver) on macOS</title>
+    <link href="https://cloudolife.com/2021/02/06/macOS/Install-HP-Easy-Start-HP-Printer-Software-and-Driver-on-macOS/"/>
+    <id>https://cloudolife.com/2021/02/06/macOS/Install-HP-Easy-Start-HP-Printer-Software-and-Driver-on-macOS/</id>
+    <published>2021-02-06T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.652Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;HP-Easy-Start&quot;&gt;&lt;a href=&quot;#HP-Easy-Start&quot; class=&quot;headerlink&quot; title=&quot;HP Easy Start&quot;&gt;&lt;/a&gt;HP Easy Start&lt;/h1&gt;&lt;p&gt;HP Easy Start is the new way to set up your HP printer and prepare your Mac for printing. HP Easy Start will locate and install the latest software for your printer and then guide you through printer setup.&lt;/p&gt;
+&lt;p&gt;HP Easy Start is a unique and useful application designed to guide you setting up with the most updated drivers for your HP Printer . These drivers address printer to computer compatibility, but also makes it easy to set up your devices ready for printing.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="macOS" scheme="https://cloudolife.com/categories/macOS/"/>
+    
+    <category term="Printer" scheme="https://cloudolife.com/categories/macOS/Printer/"/>
+    
+    
+    <category term="macOS" scheme="https://cloudolife.com/tags/macOS/"/>
+    
+    <category term="HP LaserJet Pro M1213nf Multifunction Printer" scheme="https://cloudolife.com/tags/HP-LaserJet-Pro-M1213nf-Multifunction-Printer/"/>
+    
+    <category term="Printer" scheme="https://cloudolife.com/tags/Printer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Software development language, TDD, Three-pronged approach from Rust at FP Complete, 2020</title>
+    <link href="https://cloudolife.com/2021/01/30/Reading/Software-development-language-TDD-Three-pronged-approach-from-Rust-at-FP-Complete-2020/"/>
+    <id>https://cloudolife.com/2021/01/30/Reading/Software-development-language-TDD-Three-pronged-approach-from-Rust-at-FP-Complete-2020/</id>
+    <published>2021-01-30T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Summary-Rust-at-FP-Complete-2020-update&quot;&gt;&lt;a href=&quot;#Summary-Rust-at-FP-Complete-2020-update&quot; class=&quot;headerlink&quot; title=&quot;Summary - Rust at FP Complete, 2020 update&quot;&gt;&lt;/a&gt;Summary - Rust at FP Complete, 2020 update&lt;/h1&gt;&lt;p&gt;This article is about Software development language, TDD, Three-pronged approach from &lt;a href=&quot;https://www.fpcomplete.com/blog/rust-at-fpco-2020/&quot;&gt;Rust at FP Complete, 2020 update - https://www.fpcomplete.com/blog/rust-at-fpco-2020/&lt;/a&gt;.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Thinking" scheme="https://cloudolife.com/categories/Thinking/"/>
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Thinking/Programming-language/"/>
+    
+    <category term="Rust" scheme="https://cloudolife.com/categories/Thinking/Programming-language/Rust/"/>
+    
+    
+    <category term="Thinking" scheme="https://cloudolife.com/tags/Thinking/"/>
+    
+    <category term="Programming language" scheme="https://cloudolife.com/tags/Programming-language/"/>
+    
+    <category term="Productivity" scheme="https://cloudolife.com/tags/Productivity/"/>
+    
+    <category term="Robustness" scheme="https://cloudolife.com/tags/Robustness/"/>
+    
+    <category term="Performance" scheme="https://cloudolife.com/tags/Performance/"/>
+    
+    <category term="Test-driven development (TDD)" scheme="https://cloudolife.com/tags/Test-driven-development-TDD/"/>
+    
+    <category term="FP Complete" scheme="https://cloudolife.com/tags/FP-Complete/"/>
+    
+    <category term="Rust" scheme="https://cloudolife.com/tags/Rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Awesome Go] Use Air to hot live reload for Go apps</title>
+    <link href="https://cloudolife.com/2021/01/30/Programming-Language/Golang/Awesome-Go/UseAir-to-hot-live-reload-for-Go-apps/"/>
+    <id>https://cloudolife.com/2021/01/30/Programming-Language/Golang/Awesome-Go/UseAir-to-hot-live-reload-for-Go-apps/</id>
+    <published>2021-01-30T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Air&quot;&gt;&lt;a href=&quot;#Air&quot; class=&quot;headerlink&quot; title=&quot;Air&quot;&gt;&lt;/a&gt;Air&lt;/h1&gt;&lt;p&gt;When I get started with developing websites in Go and Iris or Gin framework, it’s a pity that gin lacks live-reloading.&lt;/p&gt;
+&lt;p&gt;Air is yet another live-reloading command line utility for Go applications in development. Just air in your project root directory, leave it alone, and focus on your code.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/"/>
+    
+    <category term="Awesome Go" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/Awesome-Go/"/>
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/tags/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/tags/Golang-Go/"/>
+    
+    <category term="Awesome Go" scheme="https://cloudolife.com/tags/Awesome-Go/"/>
+    
+    <category term="air" scheme="https://cloudolife.com/tags/air/"/>
+    
+    <category term="pkg" scheme="https://cloudolife.com/tags/pkg/"/>
+    
+    <category term="Live Reload" scheme="https://cloudolife.com/tags/Live-Reload/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Awesome Go] Errors handling before Go 1.13 - errors - Programming language - Golang (Go) - Exception Error Handling</title>
+    <link href="https://cloudolife.com/2021/01/30/Programming-Language/Golang/Error-Exception-Handling/Errors-handling-before-Go-1-13/"/>
+    <id>https://cloudolife.com/2021/01/30/Programming-Language/Golang/Error-Exception-Handling/Errors-handling-before-Go-1-13/</id>
+    <published>2021-01-30T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;error&quot;&gt;&lt;a href=&quot;#error&quot; class=&quot;headerlink&quot; title=&quot;error&quot;&gt;&lt;/a&gt;error&lt;/h1&gt;&lt;p&gt;In error handling in the Go language, errors are an important part of the software package API and application user interface. Errors are returned as a normal return value. &lt;/p&gt;
+&lt;p&gt;In this article, we are going to explore error handling before Go 1.13.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/"/>
+    
+    <category term="Exception Error Handling" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/Exception-Error-Handling/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[Awesome Go] Use os.Exit, log.Fatal to terminate program - os.Exit - log.Fatal - errors - Programming language - Golang (Go) - Exception Error Handling</title>
+    <link href="https://cloudolife.com/2021/01/30/Programming-Language/Golang/Error-Exception-Handling/Use-os-Exit-log-Fatal-to-handle-errors/"/>
+    <id>https://cloudolife.com/2021/01/30/Programming-Language/Golang/Error-Exception-Handling/Use-os-Exit-log-Fatal-to-handle-errors/</id>
+    <published>2021-01-30T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;os-Exit-int-log-Fatal-v-…interface&quot;&gt;&lt;a href=&quot;#os-Exit-int-log-Fatal-v-…interface&quot; class=&quot;headerlink&quot; title=&quot;os.Exit(int), log.Fatal(v …interface{})&quot;&gt;&lt;/a&gt;os.Exit(int), log.Fatal(v …interface{})&lt;/h1&gt;&lt;p&gt;In Go language you can terminate program with &lt;code&gt;os.Exit&lt;/code&gt; or &lt;code&gt;log.Fatal&lt;/code&gt; to handle errors.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/"/>
+    
+    <category term="Exception Error Handling" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/Exception-Error-Handling/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[Awesome Go] Use panic and recover to handle errors and exceptions - os.Exit - log.Fatal - panic - recover - Programming language - Golang (Go) - Exception Error Handling</title>
+    <link href="https://cloudolife.com/2021/01/30/Programming-Language/Golang/Error-Exception-Handling/Use-panic-and-recover-to-handle-errors-and-exceptions/"/>
+    <id>https://cloudolife.com/2021/01/30/Programming-Language/Golang/Error-Exception-Handling/Use-panic-and-recover-to-handle-errors-and-exceptions/</id>
+    <published>2021-01-30T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;panic-v-interface-and-recover-interface&quot;&gt;&lt;a href=&quot;#panic-v-interface-and-recover-interface&quot; class=&quot;headerlink&quot; title=&quot;panic(v interface{}) and recover() interface{}&quot;&gt;&lt;/a&gt;panic(v interface{}) and recover() interface{}&lt;/h1&gt;&lt;p&gt;In the Go language, an error is considered an expected result, but an exception is an unexpected result. An exception may indicate that there is a Bug in the program or other uncontrollable problems have occurred. &lt;/p&gt;
+&lt;p&gt;If an error is encountered during internal recursive code, an exception will be thrown to quickly jump out of the deeply nested function call, and then the outermost interface will capture panic through recover, and then return the corresponding error message.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Golang (Go)" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/"/>
+    
+    <category term="Exception Error Handling" scheme="https://cloudolife.com/categories/Programming-language/Golang-Go/Exception-Error-Handling/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[Rocket.Chat] Use Rocket.Chat Incoming WebHook to receive message from external thirdparty system</title>
+    <link href="https://cloudolife.com/2021/01/23/Instant-Messaging-IM/Rocket-Chat/Use-Rocket-Chat-Incoming-WebHook-to-receive-message-from-external-thirdparty-system/"/>
+    <id>https://cloudolife.com/2021/01/23/Instant-Messaging-IM/Rocket-Chat/Use-Rocket-Chat-Incoming-WebHook-to-receive-message-from-external-thirdparty-system/</id>
+    <published>2021-01-23T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.644Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Webhooks&quot;&gt;&lt;a href=&quot;#Webhooks&quot; class=&quot;headerlink&quot; title=&quot;Webhooks&quot;&gt;&lt;/a&gt;Webhooks&lt;/h1&gt;&lt;p&gt;Rocket.Chat keep the workflow going by centralizing all your tools and touchpoints in one platform. Made for teamcollaboration, DevOps and customer engagement.&lt;/p&gt;
+&lt;p&gt;Rocket.Chat supports WebHooks to integrate tools and services you like into the platform. WebHooks are simple event-notifications via HTTP POST. This way any application implementing a WebHook is able to POST a message to a Rocket.Chat instance and much more.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Instant Messaging (IM)" scheme="https://cloudolife.com/categories/Instant-Messaging-IM/"/>
+    
+    <category term="Rocket.Chat" scheme="https://cloudolife.com/categories/Instant-Messaging-IM/Rocket-Chat/"/>
+    
+    <category term="Chat Bot" scheme="https://cloudolife.com/categories/Instant-Messaging-IM/Rocket-Chat/Chat-Bot/"/>
+    
+    <category term="WebHook" scheme="https://cloudolife.com/categories/Instant-Messaging-IM/Rocket-Chat/Chat-Bot/WebHook/"/>
+    
+    <category term="Incoming WebHook" scheme="https://cloudolife.com/categories/Instant-Messaging-IM/Rocket-Chat/Chat-Bot/WebHook/Incoming-WebHook/"/>
+    
+    
+    <category term="Instant Messaging (IM)" scheme="https://cloudolife.com/tags/Instant-Messaging-IM/"/>
+    
+    <category term="Rocket.Chat" scheme="https://cloudolife.com/tags/Rocket-Chat/"/>
+    
+    <category term="Chat Bot" scheme="https://cloudolife.com/tags/Chat-Bot/"/>
+    
+    <category term="WebHook" scheme="https://cloudolife.com/tags/WebHook/"/>
+    
+    <category term="Incoming WebHook" scheme="https://cloudolife.com/tags/Incoming-WebHook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Kubernetes (K8S)] Helm install Sentry 9.x to collect and aggregate crash reporting within Kubernetes (K8S)</title>
+    <link href="https://cloudolife.com/2021/01/23/Kubernetes-K8S/Helm/Helm-install-Sentry-9-x-to-collect-and-aggregate-crash-reporting-within-Kubernetes-K8S/"/>
+    <id>https://cloudolife.com/2021/01/23/Kubernetes-K8S/Helm/Helm-install-Sentry-9-x-to-collect-and-aggregate-crash-reporting-within-Kubernetes-K8S/</id>
+    <published>2021-01-23T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Sentry&quot;&gt;&lt;a href=&quot;#Sentry&quot; class=&quot;headerlink&quot; title=&quot;Sentry&quot;&gt;&lt;/a&gt;Sentry&lt;/h1&gt;&lt;p&gt;Sentry is a service that helps you monitor and fix crashes in realtime. The server is in Python, but it contains a full API for sending events from any language, in any application.&lt;/p&gt;
+&lt;p&gt;This article is about how to use Helm to install Sentry 9.x on Kubernetes (K8S).&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Cloud Native" scheme="https://cloudolife.com/categories/Cloud-Native/"/>
+    
+    <category term="Kubernetes (K8S)" scheme="https://cloudolife.com/categories/Cloud-Native/Kubernetes-K8S/"/>
+    
+    <category term="Helm" scheme="https://cloudolife.com/categories/Cloud-Native/Kubernetes-K8S/Helm/"/>
+    
+    <category term="Sentry" scheme="https://cloudolife.com/categories/Cloud-Native/Kubernetes-K8S/Helm/Sentry/"/>
+    
+    <category term="Site Reliability Engineering (SRE)" scheme="https://cloudolife.com/categories/Cloud-Native/Kubernetes-K8S/Helm/Sentry/Site-Reliability-Engineering-SRE/"/>
+    
+    
+    <category term="Cloud Native" scheme="https://cloudolife.com/tags/Cloud-Native/"/>
+    
+    <category term="Kubernetes (K8S)" scheme="https://cloudolife.com/tags/Kubernetes-K8S/"/>
+    
+    <category term="Helm" scheme="https://cloudolife.com/tags/Helm/"/>
+    
+    <category term="Site Reliability Engineering (SRE)" scheme="https://cloudolife.com/tags/Site-Reliability-Engineering-SRE/"/>
+    
+    <category term="Sentry" scheme="https://cloudolife.com/tags/Sentry/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Kubernetes (K8S)] Helm install PostHog to provide product analytics stack within Kubernetes (K8S)</title>
+    <link href="https://cloudolife.com/2021/01/16/Kubernetes-K8S/Helm/Helm-install-PostHog-to-collect-and-aggregate-crash-reporting-within-Kubernetes-K8S/"/>
+    <id>https://cloudolife.com/2021/01/16/Kubernetes-K8S/Helm/Helm-install-PostHog-to-collect-and-aggregate-crash-reporting-within-Kubernetes-K8S/</id>
+    <published>2021-01-16T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;PostHog&quot;&gt;&lt;a href=&quot;#PostHog&quot; class=&quot;headerlink&quot; title=&quot;PostHog&quot;&gt;&lt;/a&gt;PostHog&lt;/h1&gt;&lt;p&gt;PostHog provides open-source product analytics, built for developers. Automate the collection of every event on your website or app, with no need to send data to 3rd parties. With just 1 click you can deploy on your own infrastructure, having full API/SQL access to the underlying data.&lt;/p&gt;
+&lt;p&gt;This article is about how to use Helm to install PostHog on Kubernetes (K8S).&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Cloud Native" scheme="https://cloudolife.com/categories/Cloud-Native/"/>
+    
+    <category term="Kubernetes (K8S)" scheme="https://cloudolife.com/categories/Cloud-Native/Kubernetes-K8S/"/>
+    
+    <category term="Helm" scheme="https://cloudolife.com/categories/Cloud-Native/Kubernetes-K8S/Helm/"/>
+    
+    <category term="Site Reliability Engineering (SRE)" scheme="https://cloudolife.com/categories/Cloud-Native/Kubernetes-K8S/Helm/Site-Reliability-Engineering-SRE/"/>
+    
+    
+    <category term="Cloud Native" scheme="https://cloudolife.com/tags/Cloud-Native/"/>
+    
+    <category term="Kubernetes (K8S)" scheme="https://cloudolife.com/tags/Kubernetes-K8S/"/>
+    
+    <category term="Helm" scheme="https://cloudolife.com/tags/Helm/"/>
+    
+    <category term="PostHog" scheme="https://cloudolife.com/tags/PostHog/"/>
+    
+    <category term="Site Reliability Engineering (SRE)" scheme="https://cloudolife.com/tags/Site-Reliability-Engineering-SRE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Ruby on Rails (RoR)] Upgrade to Ruby 3 and Rails 6.1</title>
+    <link href="https://cloudolife.com/2021/01/09/Programming-Language/Ruby-on-Rails-RoR/Upgrade-to-Ruby-3-and-Rails-6-1/"/>
+    <id>https://cloudolife.com/2021/01/09/Programming-Language/Ruby-on-Rails-RoR/Upgrade-to-Ruby-3-and-Rails-6-1/</id>
+    <published>2021-01-09T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Ruby-3-and-Rails-6-1&quot;&gt;&lt;a href=&quot;#Ruby-3-and-Rails-6-1&quot; class=&quot;headerlink&quot; title=&quot;Ruby 3 and Rails 6.1&quot;&gt;&lt;/a&gt;Ruby 3 and Rails</summary>
+        
+      
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Ruby" scheme="https://cloudolife.com/categories/Programming-language/Ruby/"/>
+    
+    <category term="Rails / Ruby on Rails (RoR)" scheme="https://cloudolife.com/categories/Programming-language/Ruby/Rails-Ruby-on-Rails-RoR/"/>
+    
+    
+    <category term="Rails / Ruby on Rails (RoR)" scheme="https://cloudolife.com/tags/Rails-Ruby-on-Rails-RoR/"/>
+    
+    <category term="Ruby" scheme="https://cloudolife.com/tags/Ruby/"/>
+    
+    <category term="Kubernetes (K8S)" scheme="https://cloudolife.com/tags/Kubernetes-K8S/"/>
+    
+    <category term="Docker" scheme="https://cloudolife.com/tags/Docker/"/>
+    
+    <category term="Docker Compose" scheme="https://cloudolife.com/tags/Docker-Compose/"/>
+    
+    <category term="Programming language" scheme="https://cloudolife.com/tags/Programming-language/"/>
+    
+    <category term="Ruby 3" scheme="https://cloudolife.com/tags/Ruby-3/"/>
+    
+    <category term="Rails 6.1" scheme="https://cloudolife.com/tags/Rails-6-1/"/>
+    
+    <category term="Dockerfile" scheme="https://cloudolife.com/tags/Dockerfile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Ruby on Rails (RoR)] Use #before? and #after? to compare Date, DateTime, Time or ActiveSupport::TimeWithZone in Rails 6</title>
+    <link href="https://cloudolife.com/2021/01/09/Programming-Language/Ruby-on-Rails-RoR/Use-before-and-after-to-compare-Date-DateTime-Time-or-ActiveSupport-TimeWithZone-in-Rails-6/"/>
+    <id>https://cloudolife.com/2021/01/09/Programming-Language/Ruby-on-Rails-RoR/Use-before-and-after-to-compare-Date-DateTime-Time-or-ActiveSupport-TimeWithZone-in-Rails-6/</id>
+    <published>2021-01-09T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;before-and-after&quot;&gt;&lt;a href=&quot;#before-and-after&quot; class=&quot;headerlink&quot; title=&quot;#before? and #after?&quot;&gt;&lt;/a&gt;#before? and</summary>
+        
+      
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Ruby" scheme="https://cloudolife.com/categories/Programming-language/Ruby/"/>
+    
+    <category term="Rails / Ruby on Rails (RoR)" scheme="https://cloudolife.com/categories/Programming-language/Ruby/Rails-Ruby-on-Rails-RoR/"/>
+    
+    
+    <category term="Rails / Ruby on Rails (RoR)" scheme="https://cloudolife.com/tags/Rails-Ruby-on-Rails-RoR/"/>
+    
+    <category term="Ruby" scheme="https://cloudolife.com/tags/Ruby/"/>
+    
+    <category term="Programming language" scheme="https://cloudolife.com/tags/Programming-language/"/>
+    
+    <category term="Date" scheme="https://cloudolife.com/tags/Date/"/>
+    
+    <category term="DateTime" scheme="https://cloudolife.com/tags/DateTime/"/>
+    
+    <category term="Time" scheme="https://cloudolife.com/tags/Time/"/>
+    
+    <category term="ActiveSupport::TimeWithZone" scheme="https://cloudolife.com/tags/ActiveSupport-TimeWithZone/"/>
+    
+    <category term="Rails 6" scheme="https://cloudolife.com/tags/Rails-6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Ruby on Rails (RoR)] Use elastic-apm gem to send Transactions, Errors and Metrics data to Elastic APM Server</title>
+    <link href="https://cloudolife.com/2021/01/09/Programming-Language/Ruby-on-Rails-RoR/Awesome-Ruby-Gem/Use-elastic-apm-gem-to-send-Transactions-Errors-and-Metrics-data-to-Elastic-APM-Server/"/>
+    <id>https://cloudolife.com/2021/01/09/Programming-Language/Ruby-on-Rails-RoR/Awesome-Ruby-Gem/Use-elastic-apm-gem-to-send-Transactions-Errors-and-Metrics-data-to-Elastic-APM-Server/</id>
+    <published>2021-01-09T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;elastic-apm&quot;&gt;&lt;a href=&quot;#elastic-apm&quot; class=&quot;headerlink&quot; title=&quot;elastic-apm&quot;&gt;&lt;/a&gt;elastic-apm&lt;/h1&gt;&lt;p&gt;elastic-apm gem is the official</summary>
+        
+      
+    
+    
+    
+    <category term="Programming language" scheme="https://cloudolife.com/categories/Programming-language/"/>
+    
+    <category term="Ruby" scheme="https://cloudolife.com/categories/Programming-language/Ruby/"/>
+    
+    <category term="Rails / Ruby on Rails (RoR)" scheme="https://cloudolife.com/categories/Programming-language/Ruby/Rails-Ruby-on-Rails-RoR/"/>
+    
+    <category term="Awesome Ruby Gem" scheme="https://cloudolife.com/categories/Programming-language/Ruby/Rails-Ruby-on-Rails-RoR/Awesome-Ruby-Gem/"/>
+    
+    
+    <category term="Rails / Ruby on Rails (RoR)" scheme="https://cloudolife.com/tags/Rails-Ruby-on-Rails-RoR/"/>
+    
+    <category term="Best practices" scheme="https://cloudolife.com/tags/Best-practices/"/>
+    
+    <category term="Ruby" scheme="https://cloudolife.com/tags/Ruby/"/>
+    
+    <category term="Programming language" scheme="https://cloudolife.com/tags/Programming-language/"/>
+    
+    <category term="Awesome Ruby Gem" scheme="https://cloudolife.com/tags/Awesome-Ruby-Gem/"/>
+    
+    <category term="elastic-apm" scheme="https://cloudolife.com/tags/elastic-apm/"/>
+    
+    <category term="Application Performance Management (APM)" scheme="https://cloudolife.com/tags/Application-Performance-Management-APM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Raspberry Pi] Installing Docker and Docker Compose on Raspberry Pi OS</title>
+    <link href="https://cloudolife.com/2021/01/01/Raspberry-Pi/Installing-Docker-and-Docker-Compose-on-Raspberry-Pi-OS/"/>
+    <id>https://cloudolife.com/2021/01/01/Raspberry-Pi/Installing-Docker-and-Docker-Compose-on-Raspberry-Pi-OS/</id>
+    <published>2021-01-01T00:00:00.000Z</published>
+    <updated>2021-02-24T15:08:47.648Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;At the end of May 2020, the Raspberry Pi Foundation announced Raspberry Pi OS, the new official operating system for the mini-computer that is replacing Raspbian.&lt;/p&gt;
+&lt;p&gt;The good news is that Raspberry Pi OS does support Docker and Docker Compose, in both the 32-bit and 64-bit variants! Read below on how to install it as well as Docker Compose.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Raspberry Pi" scheme="https://cloudolife.com/categories/Raspberry-Pi/"/>
+    
+    <category term="Docker" scheme="https://cloudolife.com/categories/Raspberry-Pi/Docker/"/>
+    
+    <category term="Docker Compose" scheme="https://cloudolife.com/categories/Raspberry-Pi/Docker/Docker-Compose/"/>
+    
+    
+    <category term="Docker" scheme="https://cloudolife.com/tags/Docker/"/>
+    
+    <category term="Docker Compose" scheme="https://cloudolife.com/tags/Docker-Compose/"/>
+    
+    <category term="Linux" scheme="https://cloudolife.com/tags/Linux/"/>
+    
+    <category term="Raspberry Pi" scheme="https://cloudolife.com/tags/Raspberry-Pi/"/>
+    
+    <category term="Raspberry Pi OS" scheme="https://cloudolife.com/tags/Raspberry-Pi-OS/"/>
+    
+  </entry>
+  
+</feed>

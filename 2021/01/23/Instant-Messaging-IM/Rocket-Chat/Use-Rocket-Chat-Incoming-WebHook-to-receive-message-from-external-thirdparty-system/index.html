@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="sJgro_9-KyRL3EkTM5KW84pQPrg2Fv1KdkibDRBIulE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cloudolife.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+<script data-ad-client="ca-pub-8693122033969144" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <meta name="description" content="WebhooksRocket.Chat keep the workflow going by centralizing all your tools and touchpoints in one platform. Made for teamcollaboration, DevOps and customer engagement. Rocket.Chat supports WebHooks to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Rocket.Chat] Use Rocket.Chat Incoming WebHook to receive message from external thirdparty system">
+<meta property="og:url" content="https://cloudolife.com/2021/01/23/Instant-Messaging-IM/Rocket-Chat/Use-Rocket-Chat-Incoming-WebHook-to-receive-message-from-external-thirdparty-system/index.html">
+<meta property="og:site_name" content="Cloud-oriented Life">
+<meta property="og:description" content="WebhooksRocket.Chat keep the workflow going by centralizing all your tools and touchpoints in one platform. Made for teamcollaboration, DevOps and customer engagement. Rocket.Chat supports WebHooks to">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-23T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-24T15:08:47.644Z">
+<meta property="article:author" content="CloudoLife">
+<meta property="article:tag" content="Instant Messaging (IM)">
+<meta property="article:tag" content="Rocket.Chat">
+<meta property="article:tag" content="Chat Bot">
+<meta property="article:tag" content="WebHook">
+<meta property="article:tag" content="Incoming WebHook">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://cloudolife.com/2021/01/23/Instant-Messaging-IM/Rocket-Chat/Use-Rocket-Chat-Incoming-WebHook-to-receive-message-from-external-thirdparty-system/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>[Rocket.Chat] Use Rocket.Chat Incoming WebHook to receive message from external thirdparty system | Cloud-oriented Life</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y9QPJWXQN"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8Y9QPJWXQN');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?995d7016a56cfd5c2ef6f2e6640a670e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Cloud-oriented Life" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Cloud-oriented Life</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Cloud Native Technology Improves Lives</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">234</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">86</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about-us/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Webhooks"><span class="nav-number">1.</span> <span class="nav-text">Webhooks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Incoming-WebHook"><span class="nav-number">1.1.</span> <span class="nav-text">Incoming WebHook</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration"><span class="nav-number">1.1.1.</span> <span class="nav-text">Configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FAQs"><span class="nav-number">1.1.2.</span> <span class="nav-text">FAQs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Invalid-href-value-provided"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Invalid href value provided</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.2.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">CloudoLife</p>
+  <div class="site-description" itemprop="description">Cloud Native Technology Improves Lives</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">234</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CloudoLife" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CloudoLife" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/CloudoLife" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;CloudoLife" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cloudolife.com/2021/01/23/Instant-Messaging-IM/Rocket-Chat/Use-Rocket-Chat-Incoming-WebHook-to-receive-message-from-external-thirdparty-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="CloudoLife">
+      <meta itemprop="description" content="Cloud Native Technology Improves Lives">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cloud-oriented Life">
+    </span>
+
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Rocket.Chat] Use Rocket.Chat Incoming WebHook to receive message from external thirdparty system
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-23 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-23T00:00:00+00:00">2021-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-24 15:08:47" itemprop="dateModified" datetime="2021-02-24T15:08:47+00:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Instant-Messaging-IM/" itemprop="url" rel="index"><span itemprop="name">Instant Messaging (IM)</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Instant-Messaging-IM/Rocket-Chat/" itemprop="url" rel="index"><span itemprop="name">Rocket.Chat</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Instant-Messaging-IM/Rocket-Chat/Chat-Bot/" itemprop="url" rel="index"><span itemprop="name">Chat Bot</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Instant-Messaging-IM/Rocket-Chat/Chat-Bot/WebHook/" itemprop="url" rel="index"><span itemprop="name">WebHook</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Instant-Messaging-IM/Rocket-Chat/Chat-Bot/WebHook/Incoming-WebHook/" itemprop="url" rel="index"><span itemprop="name">Incoming WebHook</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Webhooks"><a href="#Webhooks" class="headerlink" title="Webhooks"></a>Webhooks</h1><p>Rocket.Chat keep the workflow going by centralizing all your tools and touchpoints in one platform. Made for teamcollaboration, DevOps and customer engagement.</p>
+<p>Rocket.Chat supports WebHooks to integrate tools and services you like into the platform. WebHooks are simple event-notifications via HTTP POST. This way any application implementing a WebHook is able to POST a message to a Rocket.Chat instance and much more.</p>
+<a id="more"></a>
+
+<p>With Scripts you can point any WebHook to Rocket.Chat and process the request to print customized messages, define the username and avatar of the user of the message and change the channel where the message will be posted or you can cancel the request to prevent undesired messages.</p>
+<p>Available integrations:</p>
+<ul>
+<li><p>Incoming WebHook → Let an external service send a request to Rocket.Chat to be processed.</p>
+</li>
+<li><p>Outgoing WebHook → Let Rocket.Chat trigger and optionally send a request to an external service and process the response.</p>
+</li>
+</ul>
+<p>By default the WebHooks is designed to post a message only. The message is part of a JSON structure, which has the same format as described in the API documentation on how to “Post a chat message”.</p>
+<p>If you would like more power and control over various features of Rocket.Chat, aside from sending and receiving messages, take a look at Rocket.Chat Apps.</p>
+<h2 id="Incoming-WebHook"><a href="#Incoming-WebHook" class="headerlink" title="Incoming WebHook"></a>Incoming WebHook</h2><p>Go to your Admin Panel -&gt; Integrations -&gt; Incoming, create a New Integration and select Incoming WebHook.</p>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>These are required attributes:</p>
+<ul>
+<li><p>Enabled</p>
+<p>Enable or disable the webhook.</p>
+</li>
+<li><p>Name</p>
+<p>You should name it to easily manage your integrations.</p>
+</li>
+<li><p>Post to Channel</p>
+<p>Messages that are sent to the Incoming WebHook will be posted here.</p>
+<p>Start with @ for user or # for channel. Eg: @john or #general</p>
+</li>
+<li><p>Post as</p>
+<p>Choose the username that this integration will post as.</p>
+<p>The user must already exist.</p>
+</li>
+</ul>
+<p>You will get the Example payload and Curl example to check webhook work after save it.</p>
+<h3 id="FAQs"><a href="#FAQs" class="headerlink" title="FAQs"></a>FAQs</h3><h4 id="Invalid-href-value-provided"><a href="#Invalid-href-value-provided" class="headerlink" title="Invalid href value provided"></a>Invalid href value provided</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -X POST -H <span class="string">&#x27;Content-Type: application/json&#x27;</span> --data <span class="string">&#x27;&#123;&quot;text&quot;:&quot;Example message&quot;,&quot;attachments&quot;:[&#123;&quot;title&quot;:&quot;Rocket.Chat&quot;,&quot;title_link&quot;:&quot;https://rocketchat.examples.cloudolife.com/&quot;,&quot;text&quot;:&quot;Rocket.Chat, the best open source chat&quot;,&quot;image_url&quot;:&quot;/images/integration-attachment-example.png&quot;,&quot;color&quot;:&quot;#764FA5&quot;&#125;]&#125;&#x27;</span> https://rocketchat.examples.cloudolife.com/hooks/SCmiSiecyBSTt8xab/LsWiaaPv8LvcYnydsb6QcNAdybfiY2X59icdcKrRWKs2GhKn</span></span><br><span class="line">&#123;&quot;success&quot;:false,&quot;error&quot;:&quot;Invalid href value provided&quot;&#125;%</span><br></pre></td></tr></table></figure>
+
+<p>After analysis error and retry, it turn out the image_url must be the valid and complete url. You can insert <a target="_blank" rel="noopener external nofollow noreferrer" href="https://rocketchat.examples.cloudolife.com/">https://rocketchat.examples.cloudolife.com</a> into image_url, such as:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;image_url&quot;:&quot;https://rocketchat.examples.cloudolife.com/images/integration-attachment-example.png&quot;,&quot;color&quot;:&quot;#764FA5&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Try it.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST -H &#x27;Content-Type: application/json&#x27; --data &#x27;&#123;&quot;text&quot;:&quot;Example message&quot;,&quot;attachments&quot;:[&#123;&quot;title&quot;:&quot;Rocket.Chat&quot;,&quot;title_link&quot;:&quot;https://rocket.chat&quot;,&quot;text&quot;:&quot;Rocket.Chat, the best open source chat&quot;,&quot;image_url&quot;:&quot;https://rocketchat.examples.cloudolife.com/images/integration-attachment-example.png&quot;,&quot;color&quot;:&quot;#764FA5&quot;&#125;]&#125;&#x27; https://rocketchat.examples.cloudolife.com/hooks/SCmiSiecyBSTt8xab/LsWiaaPv8LvcYnydsb6QcNAdybfiY2X59icdcKrRWKs2GhKn</span><br><span class="line">&#123;&quot;success&quot;:true&#125;</span><br></pre></td></tr></table></figure>
+
+<!-- ## Outgoing WebHook
+
+Go to your Admin Panel -> Integrations -> Outgoing, create a New Integration and select Outgoing WebHook. -->
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.rocket.chat/guides/administrator-guides/integrations">Integrations WebHooks - Rocket.Chat Docs - https://docs.rocket.chat/guides/administrator-guides/integrations</a></p>
+<p>[2] <a target="_blank" rel="noopener external nofollow noreferrer" href="https://rocket.chat/">Rocket.Chat - The Ultimate Communication Platform - https://rocket.chat/</a></p>
+
+    </div>
+
+    
+    
+    
+      
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>CloudoLife
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://cloudolife.com/2021/01/23/Instant-Messaging-IM/Rocket-Chat/Use-Rocket-Chat-Incoming-WebHook-to-receive-message-from-external-thirdparty-system/" title="[Rocket.Chat] Use Rocket.Chat Incoming WebHook to receive message from external thirdparty system">https://cloudolife.com/2021/01/23/Instant-Messaging-IM/Rocket-Chat/Use-Rocket-Chat-Incoming-WebHook-to-receive-message-from-external-thirdparty-system/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/CloudoLife" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/CloudoLife" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Instant-Messaging-IM/" rel="tag"># Instant Messaging (IM)</a>
+              <a href="/tags/Rocket-Chat/" rel="tag"># Rocket.Chat</a>
+              <a href="/tags/Chat-Bot/" rel="tag"># Chat Bot</a>
+              <a href="/tags/WebHook/" rel="tag"># WebHook</a>
+              <a href="/tags/Incoming-WebHook/" rel="tag"># Incoming WebHook</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/23/Kubernetes-K8S/Helm/Helm-install-Sentry-9-x-to-collect-and-aggregate-crash-reporting-within-Kubernetes-K8S/" rel="prev" title="[Kubernetes (K8S)] Helm install Sentry 9.x to collect and aggregate crash reporting within Kubernetes (K8S)">
+      <i class="fa fa-chevron-left"></i> [Kubernetes (K8S)] Helm install Sentry 9.x to collect and aggregate crash reporting within Kubernetes (K8S)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/30/Programming-Language/Golang/Error-Exception-Handling/Use-panic-and-recover-to-handle-errors-and-exceptions/" rel="next" title="[Awesome Go] Use panic and recover to handle errors and exceptions - os.Exit - log.Fatal - panic - recover - Programming language - Golang (Go) - Exception Error Handling">
+      [Awesome Go] Use panic and recover to handle errors and exceptions - os.Exit - log.Fatal - panic - recover - Programming language - Golang (Go) - Exception Error Handling <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CloudoLife</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">325k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">4:56</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener external nofollow noreferrer" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'b1c6b5d7b5cb278e4f21',
+      clientSecret: '8f0215ca3b1b52b0655c618d7a5f1abea452de21',
+      repo        : 'gitalk.CloudoLife.github.io',
+      owner       : 'CloudoLife',
+      admin       : ['benjamincloudolife'],
+      id          : '046e7ea8913e65dc32504353d8e89255',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

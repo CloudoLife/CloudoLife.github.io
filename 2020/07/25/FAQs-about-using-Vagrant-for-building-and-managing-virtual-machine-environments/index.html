@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="sJgro_9-KyRL3EkTM5KW84pQPrg2Fv1KdkibDRBIulE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cloudolife.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+<script data-ad-client="ca-pub-8693122033969144" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <meta name="description" content="FAQs about using Vagrant for building and managing virtual machine environmentsVagrant is a tool for building and managing virtual machine environments in a single workflow. With an easy-to-use workfl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAQs about using Vagrant for building and managing virtual machine environments">
+<meta property="og:url" content="https://cloudolife.com/2020/07/25/FAQs-about-using-Vagrant-for-building-and-managing-virtual-machine-environments/index.html">
+<meta property="og:site_name" content="Cloud-oriented Life">
+<meta property="og:description" content="FAQs about using Vagrant for building and managing virtual machine environmentsVagrant is a tool for building and managing virtual machine environments in a single workflow. With an easy-to-use workfl">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-25T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-24T15:08:47.644Z">
+<meta property="article:author" content="CloudoLife">
+<meta property="article:tag" content="Vagrant">
+<meta property="article:tag" content="FAQs">
+<meta property="article:tag" content="Virtual Machine">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://cloudolife.com/2020/07/25/FAQs-about-using-Vagrant-for-building-and-managing-virtual-machine-environments/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>FAQs about using Vagrant for building and managing virtual machine environments | Cloud-oriented Life</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y9QPJWXQN"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8Y9QPJWXQN');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?995d7016a56cfd5c2ef6f2e6640a670e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Cloud-oriented Life" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Cloud-oriented Life</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Cloud Native Technology Improves Lives</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">234</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">86</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about-us/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQs-about-using-Vagrant-for-building-and-managing-virtual-machine-environments"><span class="nav-number">1.</span> <span class="nav-text">FAQs about using Vagrant for building and managing virtual machine environments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vagrant-Up"><span class="nav-number">1.1.</span> <span class="nav-text">Vagrant Up</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Error-Unknown-repo-%E2%80%98C-base%E2%80%99-on-CentOS-8"><span class="nav-number">1.1.1.</span> <span class="nav-text">Error: Unknown repo: ‘C*-base’ on CentOS 8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sbin-mount-vboxsf-mounting-failed-with-the-error-No-such-device-on-ubuntu-eoan64"><span class="nav-number">1.1.2.</span> <span class="nav-text">&#x2F;sbin&#x2F;mount.vboxsf: mounting failed with the error: No such device on ubuntu&#x2F;eoan64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stderr-VBoxManage-error-VT-x-is-disabled-in-the-BIOS-for-all-CPU-modes-VERR-VMX-MSR-ALL-VMX-DISABLED"><span class="nav-number">1.1.3.</span> <span class="nav-text">Stderr: VBoxManage: error: VT-x is disabled in the BIOS for all CPU modes (VERR_VMX_MSR_ALL_VMX_DISABLED)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.2.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">CloudoLife</p>
+  <div class="site-description" itemprop="description">Cloud Native Technology Improves Lives</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">234</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CloudoLife" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CloudoLife" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/CloudoLife" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;CloudoLife" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cloudolife.com/2020/07/25/FAQs-about-using-Vagrant-for-building-and-managing-virtual-machine-environments/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="CloudoLife">
+      <meta itemprop="description" content="Cloud Native Technology Improves Lives">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cloud-oriented Life">
+    </span>
+
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          FAQs about using Vagrant for building and managing virtual machine environments
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-25 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-25T00:00:00+00:00">2020-07-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-24 15:08:47" itemprop="dateModified" datetime="2021-02-24T15:08:47+00:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vagrant/" itemprop="url" rel="index"><span itemprop="name">Vagrant</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vagrant/FAQs/" itemprop="url" rel="index"><span itemprop="name">FAQs</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vagrant/FAQs/Virtual-Machine/" itemprop="url" rel="index"><span itemprop="name">Virtual Machine</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vagrant/FAQs/Virtual-Machine/Google-oriented-Programming-GoP/" itemprop="url" rel="index"><span itemprop="name">Google-oriented Programming(GoP)</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="FAQs-about-using-Vagrant-for-building-and-managing-virtual-machine-environments"><a href="#FAQs-about-using-Vagrant-for-building-and-managing-virtual-machine-environments" class="headerlink" title="FAQs about using Vagrant for building and managing virtual machine environments"></a>FAQs about using Vagrant for building and managing virtual machine environments</h1><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vagrantup.com/">Vagrant</a> is a tool for building and managing virtual machine environments in a single workflow. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases production parity, and makes the “works on my machine” excuse a relic of the past.</p>
+<p>There are some FAQs about Vagrant.</p>
+<a id="more"></a>
+
+<h2 id="Vagrant-Up"><a href="#Vagrant-Up" class="headerlink" title="Vagrant Up"></a>Vagrant Up</h2><h3 id="Error-Unknown-repo-‘C-base’-on-CentOS-8"><a href="#Error-Unknown-repo-‘C-base’-on-CentOS-8" class="headerlink" title="Error: Unknown repo: ‘C*-base’ on CentOS 8"></a>Error: Unknown repo: ‘C*-base’ on CentOS 8</h3><p>There is a error occure when run vagrant up command first time.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vagrant up</span></span><br><span class="line">==&gt; default: Attempting graceful shutdown of VM</span><br><span class="line">...</span><br><span class="line">Error: Unknown repo: &#x27;C*-base&#x27;</span><br><span class="line">The following SSH command responded with a non-zero exit status.</span><br><span class="line">Vagrant assumes that this means the command failed!</span><br><span class="line"></span><br><span class="line">yum install -y kernel-devel-`uname -r` --enablerepo=C*-base --enablerepo=C*-updates</span><br><span class="line"></span><br><span class="line">Stderr from the command:</span><br><span class="line"></span><br><span class="line">Error: Unknown repo: &#x27;C*-base&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>Check vm status with vagrant status command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vagrant status</span></span><br><span class="line">Current machine states:</span><br><span class="line"></span><br><span class="line">default                   running (virtualbox)</span><br><span class="line"></span><br><span class="line">The VM is running. To stop this VM, you can run `vagrant halt` to</span><br><span class="line">shut it down forcefully, or you can run `vagrant suspend` to simply</span><br><span class="line">suspend the virtual machine. In either case, to restart it again,</span><br><span class="line">simply run `vagrant up`.</span><br></pre></td></tr></table></figure>
+
+<p>Then, ssh into vm with vagrant ssh command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vagrant ssh</span></span><br><span class="line">[vagrant@localhost ~]$ </span><br><span class="line">[vagrant@localhost ~]$ sudo yum update -y</span><br><span class="line">[vagrant@localhost ~]$ exit</span><br></pre></td></tr></table></figure>
+
+<p>Last, exit to host to run vagrant reload.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vagrant reload</span></span><br><span class="line">==&gt; default: Attempting graceful shutdown of VM...</span><br><span class="line">...</span><br><span class="line">==&gt; default: flag to force provisioning. Provisioners marked to run always will still run.</span><br></pre></td></tr></table></figure>
+
+<p>OK, the vm vagrant up sucessfully.</p>
+<h3 id="sbin-mount-vboxsf-mounting-failed-with-the-error-No-such-device-on-ubuntu-eoan64"><a href="#sbin-mount-vboxsf-mounting-failed-with-the-error-No-such-device-on-ubuntu-eoan64" class="headerlink" title="/sbin/mount.vboxsf: mounting failed with the error: No such device on ubuntu/eoan64"></a>/sbin/mount.vboxsf: mounting failed with the error: No such device on ubuntu/eoan64</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vagrant up                                                                                                       22.92 Dur  17:32:24</span><br><span class="line">Bringing machine &#x27;default&#x27; up with &#x27;virtualbox&#x27; provider...</span><br><span class="line">==&gt; default: Box &#x27;ubuntu/eoan64&#x27; could not be found. Attempting to find and install...</span><br><span class="line">...</span><br><span class="line">Vagrant was unable to mount VirtualBox shared folders. This is usually</span><br><span class="line">because the filesystem &quot;vboxsf&quot; is not available. This filesystem is</span><br><span class="line">made available via the VirtualBox Guest Additions and kernel module.</span><br><span class="line">Please verify that these guest additions are properly installed in the</span><br><span class="line">guest. This is not a bug in Vagrant and is usually caused by a faulty</span><br><span class="line">Vagrant box. For context, the command attempted was:</span><br><span class="line"></span><br><span class="line">mount -t vboxsf -o uid=1000,gid=1000 vagrant /vagrant</span><br><span class="line"></span><br><span class="line">The error output from the command was:</span><br><span class="line"></span><br><span class="line">/sbin/mount.vboxsf: mounting failed with the error: No such device</span><br></pre></td></tr></table></figure>
+
+<p>First, install vagrant-vbguest plugin.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vagrant plugin install vagrant-vbguest</span></span><br><span class="line">Installing the &#x27;vagrant-vbguest&#x27; plugin. This can take a few minutes...</span><br><span class="line">Fetching: micromachine-3.0.0.gem (100%)</span><br><span class="line">Fetching: vagrant-vbguest-0.23.0.gem (100%)</span><br><span class="line">Installed the plugin &#x27;vagrant-vbguest (0.23.0)&#x27;!</span><br></pre></td></tr></table></figure>
+
+<p>Then, run vagrant vbguest command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vagrant vbguest</span></span><br><span class="line">[default] No Virtualbox Guest Additions installation found.</span><br><span class="line">...</span><br><span class="line">Unmounting Virtualbox Guest Additions ISO from: /mnt</span><br></pre></td></tr></table></figure>
+
+<p>Last, exit to host to run vagrant reload.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vagrant reload</span></span><br><span class="line">==&gt; default: Attempting graceful shutdown of VM...</span><br><span class="line">...</span><br><span class="line">==&gt; default: flag to force provisioning. Provisioners marked to run always will still run.</span><br></pre></td></tr></table></figure>
+
+<p>OK, the vm vagrant up sucessfully.</p>
+<h3 id="Stderr-VBoxManage-error-VT-x-is-disabled-in-the-BIOS-for-all-CPU-modes-VERR-VMX-MSR-ALL-VMX-DISABLED"><a href="#Stderr-VBoxManage-error-VT-x-is-disabled-in-the-BIOS-for-all-CPU-modes-VERR-VMX-MSR-ALL-VMX-DISABLED" class="headerlink" title="Stderr: VBoxManage: error: VT-x is disabled in the BIOS for all CPU modes (VERR_VMX_MSR_ALL_VMX_DISABLED)"></a>Stderr: VBoxManage: error: VT-x is disabled in the BIOS for all CPU modes (VERR_VMX_MSR_ALL_VMX_DISABLED)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br><span class="line">Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider...</span><br><span class="line">...</span><br><span class="line">There was an error while executing &#96;VBoxManage&#96;, a CLI used by Vagrant</span><br><span class="line">for controlling VirtualBox. The command and stderr is shown below.</span><br><span class="line"></span><br><span class="line">Command: [&quot;startvm&quot;, &quot;4db5d7b1-1321-4951-81ef-24253d8407e8&quot;, &quot;--type&quot;, &quot;headless&quot;]</span><br><span class="line"></span><br><span class="line">Stderr: VBoxManage: error: VT-x is disabled in the BIOS for all CPU modes (VERR_VMX_MSR_ALL_VMX_DISABLED)</span><br><span class="line">VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole</span><br></pre></td></tr></table></figure>
+
+<p>Reeboot host then keep pressing DEL key when poweron) enter into BIOS, and enable CPU processor VT-x support.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vagrant reload</span></span><br><span class="line">==&gt; default: Attempting graceful shutdown of VM...</span><br><span class="line">...</span><br><span class="line">==&gt; default: flag to force provisioning. Provisioners marked to run always will still run.</span><br></pre></td></tr></table></figure>
+
+<p>OK, the vm vagrant up sucessfully.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.vagrantup.com/">Vagrant by HashiCorp - https://www.vagrantup.com/</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/08/29/Google-oriented-Programming-GoP-FAQs-about-Docker-Containers-or-Kubernetes-K8S-Pods/" rel="bookmark">[Google-oriented Programming(GoP)] FAQs about Docker Containers or Kubernetes (K8S) Pods Containers</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/07/25/Google-oriented-Programming-GoP-FAQs-about-SCP-to-transfer-files/" rel="bookmark">[Google-oriented Programming(GoP)] FAQs about SCP to transfer files</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>CloudoLife
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://cloudolife.com/2020/07/25/FAQs-about-using-Vagrant-for-building-and-managing-virtual-machine-environments/" title="FAQs about using Vagrant for building and managing virtual machine environments">https://cloudolife.com/2020/07/25/FAQs-about-using-Vagrant-for-building-and-managing-virtual-machine-environments/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/CloudoLife" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/CloudoLife" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vagrant/" rel="tag"># Vagrant</a>
+              <a href="/tags/FAQs/" rel="tag"># FAQs</a>
+              <a href="/tags/Virtual-Machine/" rel="tag"># Virtual Machine</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/25/Google-oriented-Programming-GoP-FAQs-about-SCP-to-transfer-files/" rel="prev" title="[Google-oriented Programming(GoP)] FAQs about SCP to transfer files">
+      <i class="fa fa-chevron-left"></i> [Google-oriented Programming(GoP)] FAQs about SCP to transfer files
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/01/Programming-Language/Ruby-on-Rails-RoR/Awesome-Ruby-Gem/Use-rails_semantic_logger-gem-to-replaces-the-Rails-default-logger/" rel="next" title="[Ruby on Rails (RoR)] Use rails_semantic_logger gem to replaces the Rails default logger">
+      [Ruby on Rails (RoR)] Use rails_semantic_logger gem to replaces the Rails default logger <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CloudoLife</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">325k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">4:56</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener external nofollow noreferrer" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'b1c6b5d7b5cb278e4f21',
+      clientSecret: '8f0215ca3b1b52b0655c618d7a5f1abea452de21',
+      repo        : 'gitalk.CloudoLife.github.io',
+      owner       : 'CloudoLife',
+      admin       : ['benjamincloudolife'],
+      id          : '659230015d97ac0c302a2dcf045f1455',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="sJgro_9-KyRL3EkTM5KW84pQPrg2Fv1KdkibDRBIulE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cloudolife.com","root":"/","scheme":"Muse","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+<script data-ad-client="ca-pub-8693122033969144" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <meta name="description" content="PulumiPulumi is a Modern Infrastructure as Code (IaC) to create, deploy, and manage infrastructure on any cloud using familiar programming languages and tools. Pulumi’s Cloud Native SDK makes it easy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Infrastructure as Code (IaC)] Get Started with Kubernetes (K8S) - Use Pulumi Go SDK to manage Kubernetes (K8S)">
+<meta property="og:url" content="https://cloudolife.com/2020/11/21/Infrastructure-as-Code-IaC/Pulumi/Pulumi-Get-Started-with-Kubernetes-K8S-Use-Pulumi-Go-SDK-to-manage-Kubernetes-K8S/index.html">
+<meta property="og:site_name" content="Cloud-oriented Life">
+<meta property="og:description" content="PulumiPulumi is a Modern Infrastructure as Code (IaC) to create, deploy, and manage infrastructure on any cloud using familiar programming languages and tools. Pulumi’s Cloud Native SDK makes it easy">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-24T15:08:47.644Z">
+<meta property="article:author" content="CloudoLife">
+<meta property="article:tag" content="Infrastructure as Code (IaC)">
+<meta property="article:tag" content="Cloud Native">
+<meta property="article:tag" content="Kubernetes (K8S)">
+<meta property="article:tag" content="Pulumi">
+<meta property="article:tag" content="Golang(Go)">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://cloudolife.com/2020/11/21/Infrastructure-as-Code-IaC/Pulumi/Pulumi-Get-Started-with-Kubernetes-K8S-Use-Pulumi-Go-SDK-to-manage-Kubernetes-K8S/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>[Infrastructure as Code (IaC)] Get Started with Kubernetes (K8S) - Use Pulumi Go SDK to manage Kubernetes (K8S) | Cloud-oriented Life</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y9QPJWXQN"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8Y9QPJWXQN');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?995d7016a56cfd5c2ef6f2e6640a670e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Cloud-oriented Life" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Cloud-oriented Life</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Cloud Native Technology Improves Lives</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">234</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">86</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">95</span></a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about-us/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pulumi"><span class="nav-number">1.</span> <span class="nav-text">Pulumi</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Prerequisites"><span class="nav-number">1.1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Pulumi-and-Go"><span class="nav-number">1.2.</span> <span class="nav-text">Install Pulumi and Go</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pulumi-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Pulumi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-Language-Runtime"><span class="nav-number">1.2.2.</span> <span class="nav-text">Go Language Runtime</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configure-Kubernetes"><span class="nav-number">1.3.</span> <span class="nav-text">Configure Kubernetes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Run-Pulumi"><span class="nav-number">1.4.</span> <span class="nav-text">Run Pulumi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.5.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">CloudoLife</p>
+  <div class="site-description" itemprop="description">Cloud Native Technology Improves Lives</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">234</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CloudoLife" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CloudoLife" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/CloudoLife" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;CloudoLife" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener external nofollow noreferrer" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cloudolife.com/2020/11/21/Infrastructure-as-Code-IaC/Pulumi/Pulumi-Get-Started-with-Kubernetes-K8S-Use-Pulumi-Go-SDK-to-manage-Kubernetes-K8S/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="CloudoLife">
+      <meta itemprop="description" content="Cloud Native Technology Improves Lives">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cloud-oriented Life">
+    </span>
+
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Infrastructure as Code (IaC)] Get Started with Kubernetes (K8S) - Use Pulumi Go SDK to manage Kubernetes (K8S)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-21T00:00:00+00:00">2020-11-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-24 15:08:47" itemprop="dateModified" datetime="2021-02-24T15:08:47+00:00">2021-02-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Infrastructure-as-Code-IaC/" itemprop="url" rel="index"><span itemprop="name">Infrastructure as Code (IaC)</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Infrastructure-as-Code-IaC/Cloud-Native/" itemprop="url" rel="index"><span itemprop="name">Cloud Native</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Infrastructure-as-Code-IaC/Cloud-Native/Kubernetes-K8S/" itemprop="url" rel="index"><span itemprop="name">Kubernetes (K8S)</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Infrastructure-as-Code-IaC/Cloud-Native/Kubernetes-K8S/Pulumi/" itemprop="url" rel="index"><span itemprop="name">Pulumi</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>8.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>8 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Pulumi"><a href="#Pulumi" class="headerlink" title="Pulumi"></a>Pulumi</h1><p>Pulumi is a Modern Infrastructure as Code (IaC) to create, deploy, and manage infrastructure on any cloud using familiar programming languages and tools.</p>
+<p>Pulumi’s Cloud Native SDK makes it easy to target any Kubernetes environment to provision a cluster, configure and deploy applications, and update them as required.</p>
+<p>This article is about how to use Pulumi and Go SDK to manager Namespace and Deployment within Kubernetes (K8S).</p>
+<a id="more"></a>
+
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://kubernetes.io/">Kubernetes (K8S)</a><br>  Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications.</li>
+</ul>
+<h2 id="Install-Pulumi-and-Go"><a href="#Install-Pulumi-and-Go" class="headerlink" title="Install Pulumi and Go"></a>Install Pulumi and Go</h2><h3 id="Pulumi-1"><a href="#Pulumi-1" class="headerlink" title="Pulumi"></a>Pulumi</h3><p>Install the <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.pulumi.com/">Pulumi - https://www.pulumi.com/</a> CLI.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Mac OS X</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew install pulumi</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Go-Language-Runtime"><a href="#Go-Language-Runtime" class="headerlink" title="Go Language Runtime"></a>Go Language Runtime</h3><p>Install <a target="_blank" rel="noopener external nofollow noreferrer" href="https://golang.org/">Go - https://golang.org/</a> .</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Mac OS X</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew install go</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Configure-Kubernetes"><a href="#Configure-Kubernetes" class="headerlink" title="Configure Kubernetes"></a>Configure Kubernetes</h2><p>By default, Pulumi will look for a kubeconfig file in the following locations, just like kubectl:</p>
+<ul>
+<li><p>The environment variable: $KUBECONFIG,</p>
+</li>
+<li><p>Or in current user’s default kubeconfig directory: ~/.kube/config</p>
+</li>
+</ul>
+<p>If the kubeconfig file is not in either of these locations, Pulumi will not find it, and it will fail to authenticate against the cluster. Set one of these locations to a valid kubeconfig file, if you have not done so already.</p>
+<h2 id="Run-Pulumi"><a href="#Run-Pulumi" class="headerlink" title="Run Pulumi"></a>Run Pulumi</h2><p>Pulumi login into local file system.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pulumi login file://.</span></span><br><span class="line">Logged in to cloudolife as cloudolife (file://.)</span><br><span class="line">or visit https://pulumi.com/docs/reference/install/ for manual instructions and release notes.</span><br></pre></td></tr></table></figure>
+
+<p>Pulumi new a project with go SDK.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pulumi new kubernetes-go</span></span><br><span class="line">This command will walk you through creating a new Pulumi project.</span><br><span class="line"></span><br><span class="line">Enter a value or leave blank to accept the (default), and press &lt;ENTER&gt;.</span><br><span class="line">Press ^C at any time to quit.</span><br><span class="line"></span><br><span class="line">project name: (cloudolife-pulumi-go-alicloud-k8s) </span><br><span class="line">project description: (A minimal Kubernetes Go Pulumi program) </span><br><span class="line">Created project &#x27;cloudolife-pulumi-go-alicloud-k8s&#x27;</span><br><span class="line"></span><br><span class="line">stack name: (dev) </span><br><span class="line">Created stack &#x27;dev&#x27;</span><br><span class="line">Enter your passphrase to protect config/secrets: </span><br><span class="line">Re-enter your passphrase to confirm: </span><br><span class="line"></span><br><span class="line">Enter your passphrase to unlock config/secrets</span><br><span class="line">    (set PULUMI_CONFIG_PASSPHRASE or PULUMI_CONFIG_PASSPHRASE_FILE to remember): </span><br><span class="line">Installing dependencies...</span><br><span class="line"></span><br><span class="line">Finished installing dependencies</span><br><span class="line"></span><br><span class="line">Your new project is ready to go! ✨</span><br><span class="line"></span><br><span class="line">To perform an initial deployment, run &#x27;pulumi up&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>The above command will create some files within the current directory.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tree .</span><br><span class="line">.</span><br><span class="line">├── Pulumi.dev.yaml</span><br><span class="line">├── Pulumi.yaml</span><br><span class="line">├── go.mod</span><br><span class="line">├── go.sum</span><br><span class="line">└── main.go</span><br></pre></td></tr></table></figure>
+
+<p>See and modify <a href="./main.go">main.go</a> file.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"># main.<span class="keyword">go</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    appsv1 <span class="string">&quot;github.com/pulumi/pulumi-kubernetes/sdk/v2/go/kubernetes/apps/v1&quot;</span></span><br><span class="line">    corev1 <span class="string">&quot;github.com/pulumi/pulumi-kubernetes/sdk/v2/go/kubernetes/core/v1&quot;</span></span><br><span class="line">    metav1 <span class="string">&quot;github.com/pulumi/pulumi-kubernetes/sdk/v2/go/kubernetes/meta/v1&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/pulumi/pulumi/sdk/v2/go/pulumi&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    pulumi.Run(<span class="function"><span class="keyword">func</span><span class="params">(ctx *pulumi.Context)</span> <span class="title">error</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Apply a namespace.</span></span><br><span class="line">        namespace, err := corev1.NewNamespace(ctx, <span class="string">&quot;pulumi-go-alicloud-k8s&quot;</span>, &amp;corev1.NamespaceArgs&#123;</span><br><span class="line">            Metadata: &amp;metav1.ObjectMetaArgs&#123;</span><br><span class="line">                Name: pulumi.String(<span class="string">&quot;pulumi-go-alicloud-k8s&quot;</span>),</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        appLabels := pulumi.StringMap&#123;</span><br><span class="line">            <span class="string">&quot;app&quot;</span>: pulumi.String(<span class="string">&quot;nginx&quot;</span>),</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Apply a Deployment.</span></span><br><span class="line">        deployment, err := appsv1.NewDeployment(ctx, <span class="string">&quot;app-dep&quot;</span>, &amp;appsv1.DeploymentArgs&#123;</span><br><span class="line">            Metadata: &amp;metav1.ObjectMetaArgs&#123;</span><br><span class="line">                Namespace: namespace.Metadata.Elem().Name(),</span><br><span class="line">            &#125;,</span><br><span class="line">            Spec: appsv1.DeploymentSpecArgs&#123;</span><br><span class="line">                Selector: &amp;metav1.LabelSelectorArgs&#123;</span><br><span class="line">                    MatchLabels: appLabels,</span><br><span class="line">                &#125;,</span><br><span class="line">                Replicas: pulumi.Int(<span class="number">1</span>),</span><br><span class="line">                Template: &amp;corev1.PodTemplateSpecArgs&#123;</span><br><span class="line">                    Metadata: &amp;metav1.ObjectMetaArgs&#123;</span><br><span class="line">                        Labels: </span><br><span class="line">                        appLabels,</span><br><span class="line">                    &#125;,</span><br><span class="line">                    Spec: &amp;corev1.PodSpecArgs&#123;</span><br><span class="line">                        Containers: corev1.ContainerArray&#123;</span><br><span class="line">                            corev1.ContainerArgs&#123;</span><br><span class="line">                                Name:  pulumi.String(<span class="string">&quot;nginx&quot;</span>),</span><br><span class="line">                                Image: pulumi.String(<span class="string">&quot;nginx&quot;</span>),</span><br><span class="line">                            &#125;&#125;,</span><br><span class="line">                    &#125;,</span><br><span class="line">                &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> err</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ctx.Export(<span class="string">&quot;name&quot;</span>, deployment.Metadata.Elem().Name())</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Run pulumi up to create the namespace and pods.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pulumi up</span></span><br><span class="line">Enter your passphrase to unlock config/secrets</span><br><span class="line">    (set PULUMI_CONFIG_PASSPHRASE or PULUMI_CONFIG_PASSPHRASE_FILE to remember): </span><br><span class="line">Previewing update (dev):</span><br><span class="line">     Type                              Name                              Plan       </span><br><span class="line">     pulumi:pulumi:Stack               cloudolife-pulumi-go-alicloud-k8s-dev             </span><br><span class="line"> +   ├─ kubernetes:core/v1:Namespace   pulumi-go-alicloud-k8s            create     </span><br><span class="line"> +   └─ kubernetes:apps/v1:Deployment  app-dep                           create     </span><br><span class="line"> </span><br><span class="line">Outputs:</span><br><span class="line">  + name: &quot;app-dep-rx8h9grh&quot;</span><br><span class="line"></span><br><span class="line">Resources:</span><br><span class="line">    + 2 to create</span><br><span class="line">    1 unchanged</span><br><span class="line"></span><br><span class="line">Permalink: file:///Users/cloudolife/WorkSpaces/cloudolife/cloudolife-devops/cloudolife-pulumi/cloudolife-pulumi-go-alicloud-k8s/.pulumi/stacks/dev.json</span><br><span class="line">Do you want to perform this update? details</span><br><span class="line">  pulumi:pulumi:Stack: (same)</span><br><span class="line">    [urn=urn:pulumi:dev::cloudolife-pulumi-go-alicloud-k8s::pulumi:pulumi:Stack::cloudolife-pulumi-go-alicloud-k8s-dev]</span><br><span class="line">    + kubernetes:core/v1:Namespace: (create)</span><br><span class="line">        [urn=urn:pulumi:dev::cloudolife-pulumi-go-alicloud-k8s::kubernetes:core/v1:Namespace::pulumi-go-alicloud-k8s]</span><br><span class="line">        apiVersion: &quot;v1&quot;</span><br><span class="line">        kind      : &quot;Namespace&quot;</span><br><span class="line">        metadata  : &#123;</span><br><span class="line">            labels: &#123;</span><br><span class="line">                app.kubernetes.io/managed-by: &quot;pulumi&quot;</span><br><span class="line">            &#125;</span><br><span class="line">            name  : &quot;pulumi-go-alicloud-k8s&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    + kubernetes:apps/v1:Deployment: (create)</span><br><span class="line">        [urn=urn:pulumi:dev::cloudolife-pulumi-go-alicloud-k8s::kubernetes:apps/v1:Deployment::app-dep]</span><br><span class="line">        apiVersion: &quot;apps/v1&quot;</span><br><span class="line">        kind      : &quot;Deployment&quot;</span><br><span class="line">        metadata  : &#123;</span><br><span class="line">            annotations: &#123;</span><br><span class="line">                pulumi.com/autonamed: &quot;true&quot;</span><br><span class="line">            &#125;</span><br><span class="line">            labels     : &#123;</span><br><span class="line">                app.kubernetes.io/managed-by: &quot;pulumi&quot;</span><br><span class="line">            &#125;</span><br><span class="line">            name       : &quot;app-dep-rx8h9grh&quot;</span><br><span class="line">            namespace  : &quot;pulumi-go-alicloud-k8s&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        spec      : &#123;</span><br><span class="line">            replicas: 1</span><br><span class="line">            selector: &#123;</span><br><span class="line">                matchLabels: &#123;</span><br><span class="line">                    app: &quot;nginx&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            template: &#123;</span><br><span class="line">                metadata: &#123;</span><br><span class="line">                    labels: &#123;</span><br><span class="line">                        app: &quot;nginx&quot;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                spec    : &#123;</span><br><span class="line">                    containers: [</span><br><span class="line">                        [0]: &#123;</span><br><span class="line">                            image: &quot;nginx&quot;</span><br><span class="line">                            name : &quot;nginx&quot;</span><br><span class="line">                        &#125;</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    --outputs:--</span><br><span class="line">  + name: &quot;app-dep-rx8h9grh&quot;</span><br><span class="line"></span><br><span class="line">Do you want to perform this update? yes</span><br><span class="line">Updating (dev):</span><br><span class="line">     Type                              Name                              Status      </span><br><span class="line">     pulumi:pulumi:Stack               cloudolife-pulumi-go-alicloud-k8s-dev              </span><br><span class="line"> +   ├─ kubernetes:core/v1:Namespace   pulumi-go-alicloud-k8s            created     </span><br><span class="line"> +   └─ kubernetes:apps/v1:Deployment  app-dep                           created     </span><br><span class="line"> </span><br><span class="line">Outputs:</span><br><span class="line">  + name: &quot;app-dep-rx8h9grh&quot;</span><br><span class="line"></span><br><span class="line">Resources:</span><br><span class="line">    + 2 created</span><br><span class="line">    1 unchanged</span><br><span class="line"></span><br><span class="line">Permalink: file:///Users/cloudolife/WorkSpaces/cloudolife/cloudolife-devops/cloudolife-pulumi/cloudolife-pulumi-go-alicloud-k8s/.pulumi/stacks/dev.json</span><br></pre></td></tr></table></figure>
+
+<p>See namespaces abount pulumi-go-alicloud-k8s</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get namespace</span><br><span class="line">NAME                     STATUS   AGE</span><br><span class="line">pulumi-go-alicloud-k8s   Active   3m29s</span><br></pre></td></tr></table></figure>
+
+<p>See pods about pulumi-go-alicloud-k8s.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> kubectl get pods -n pulumi-go-alicloud-k8s</span></span><br><span class="line">NAMESPACE                NAME                                        READY   STATUS    RESTARTS   AGE</span><br><span class="line">pulumi-go-alicloud-k8s   app-dep-rx8h9grh-f89759699-2hn27            1/1     Running   0          14s</span><br></pre></td></tr></table></figure>
+
+<p>Destroy all resources created by Pulumi.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pulumi destroy</span></span><br><span class="line">Enter your passphrase to unlock config/secrets</span><br><span class="line">    (set PULUMI_CONFIG_PASSPHRASE or PULUMI_CONFIG_PASSPHRASE_FILE to remember): </span><br><span class="line">Previewing destroy (dev):</span><br><span class="line">     Type                              Name                              Plan       </span><br><span class="line"> -   pulumi:pulumi:Stack               cloudolife-pulumi-go-alicloud-k8s-dev  delete     </span><br><span class="line"> -   ├─ kubernetes:core/v1:Namespace   pulumi-go-alicloud-k8s            delete     </span><br><span class="line"> -   └─ kubernetes:apps/v1:Deployment  app-dep                           delete     </span><br><span class="line"> </span><br><span class="line">Outputs:</span><br><span class="line">  - name: &quot;app-dep-rx8h9grh&quot;</span><br><span class="line"></span><br><span class="line">Resources:</span><br><span class="line">    - 3 to delete</span><br><span class="line"></span><br><span class="line">Permalink: file:///Users/cloudolife/WorkSpaces/cloudolife/cloudolife-devops/cloudolife-pulumi/cloudolife-pulumi-go-alicloud-k8s/.pulumi/stacks/dev.jsonn</span><br><span class="line">Do you want to perform this destroy? details</span><br><span class="line">- kubernetes:core/v1:Namespace: (delete)</span><br><span class="line">    [id=pulumi-go-alicloud-k8s]</span><br><span class="line">    [urn=urn:pulumi:dev::cloudolife-pulumi-go-alicloud-k8s::kubernetes:core/v1:Namespace::pulumi-go-alicloud-k8s]</span><br><span class="line">- kubernetes:apps/v1:Deployment: (delete)</span><br><span class="line">    [id=pulumi-go-alicloud-k8s/app-dep-rx8h9grh]</span><br><span class="line">    [urn=urn:pulumi:dev::cloudolife-pulumi-go-alicloud-k8s::kubernetes:apps/v1:Deployment::app-dep]</span><br><span class="line">- pulumi:pulumi:Stack: (delete)</span><br><span class="line">    [urn=urn:pulumi:dev::cloudolife-pulumi-go-alicloud-k8s::pulumi:pulumi:Stack::cloudolife-pulumi-go-alicloud-k8s-dev]</span><br><span class="line">    --outputs:--</span><br><span class="line">  - name: &quot;app-dep-rx8h9grh&quot;</span><br><span class="line"></span><br><span class="line">Do you want to perform this destroy? yes</span><br><span class="line">Destroying (dev):</span><br><span class="line">     Type                              Name                              Status      </span><br><span class="line"> -   pulumi:pulumi:Stack               cloudolife-pulumi-go-alicloud-k8s-dev  deleted     </span><br><span class="line"> -   ├─ kubernetes:core/v1:Namespace   pulumi-go-alicloud-k8s            deleted     </span><br><span class="line"> -   └─ kubernetes:apps/v1:Deployment  app-dep                           deleted     </span><br><span class="line"> </span><br><span class="line">Outputs:</span><br><span class="line">  - name: &quot;app-dep-rx8h9grh&quot;</span><br><span class="line"></span><br><span class="line">Resources:</span><br><span class="line">    - 3 deleted</span><br><span class="line"></span><br><span class="line">Duration: 30s</span><br><span class="line"></span><br><span class="line">Permalink: file:///Users/cloudolife/WorkSpaces/cloudolife/cloudolife-devops/cloudolife-pulumi/cloudolife-pulumi-go-alicloud-k8s/.pulumi/stacks/dev.jsonn</span><br><span class="line">The resources in the stack have been deleted, but the history and configuration associated with the stack are still maintained. </span><br><span class="line">If you want to remove the stack completely, run &#x27;pulumi stack rm dev&#x27;.</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.pulumi.com/docs/get-started/kubernetes/">Kubernetes Getting Started | Pulumi - https://www.pulumi.com/docs/get-started/kubernetes/</a></p>
+<p>[2] <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.pulumi.com/blog/deploy-kubernetes-and-apps-with-go/">Deploy Kubernetes and Applications with Go | Pulumi - https://www.pulumi.com/blog/deploy-kubernetes-and-apps-with-go/</a></p>
+<p>[3] <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.pulumi.com/">Pulumi - Modern Infrastructure as Code - https://www.pulumi.com/</a></p>
+<p>[4] <a target="_blank" rel="noopener external nofollow noreferrer" href="https://golang.org/">The Go Programming Language - https://golang.org/</a></p>
+<p>[5] <a target="_blank" rel="noopener external nofollow noreferrer" href="https://kubernetes.io/">Kubernetes - https://kubernetes.io/</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/12/12/Infrastructure-as-Code-IaC/Pulumi/Use-Pulumi-GitHub-provider-TypeScript-SDK-to-manage-Github/" rel="bookmark">[Pulumi] Use Pulumi GitHub provider TypeScript SDK to manage Github</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/09/26/Kubernetes-K8S/Helm/Helm-install-Ingress-Nginx-within-Kubernetes-K8S/" rel="bookmark">[Kubernetes (K8S)] Helm install Ingress Nginx within Kubernetes (K8S)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/11/21/Ansible/Use-Ansible-community-kubernetes-helm-to-manages-Kubernetes-K8s-packages-with-the-Helm-package-manager/" rel="bookmark">[Ansible] Use Ansible community.kubernetes.helm to manages Kubernetes (K8S) packages with the Helm package manager</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/10/03/Kubernetes-K8S/A-few-ways-to-download-images-from-k8s-gcr-io/" rel="bookmark">[Kubernetes (K8S)] A few ways to download images from k8s.gcr.io</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2020/10/31/Kubernetes-K8S/Access-Service-with-80-or-443-port-outside-macOS-Docker-Desktop-Kubernetes-K8S/" rel="bookmark">[Kubernetes (K8S)] Access Service or Pod with 80 or 443 port outside macOS Docker-Desktop Kubernetes (K8S)</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>CloudoLife
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://cloudolife.com/2020/11/21/Infrastructure-as-Code-IaC/Pulumi/Pulumi-Get-Started-with-Kubernetes-K8S-Use-Pulumi-Go-SDK-to-manage-Kubernetes-K8S/" title="[Infrastructure as Code (IaC)] Get Started with Kubernetes (K8S) - Use Pulumi Go SDK to manage Kubernetes (K8S)">https://cloudolife.com/2020/11/21/Infrastructure-as-Code-IaC/Pulumi/Pulumi-Get-Started-with-Kubernetes-K8S-Use-Pulumi-Go-SDK-to-manage-Kubernetes-K8S/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/CloudoLife" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://t.me/CloudoLife" rel="external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">Telegram</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Infrastructure-as-Code-IaC/" rel="tag"># Infrastructure as Code (IaC)</a>
+              <a href="/tags/Cloud-Native/" rel="tag"># Cloud Native</a>
+              <a href="/tags/Kubernetes-K8S/" rel="tag"># Kubernetes (K8S)</a>
+              <a href="/tags/Pulumi/" rel="tag"># Pulumi</a>
+              <a href="/tags/Golang-Go/" rel="tag"># Golang(Go)</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/07/Kubernetes-K8S/Helm/Helm-install-Grafana-Loki-to-deploy-a-log-aggregation-system-within-Kubernetes-K8S/" rel="prev" title="[Kubernetes (K8S)] Helm install Grafana Loki to deploy a log aggregation system within Kubernetes (K8S)">
+      <i class="fa fa-chevron-left"></i> [Kubernetes (K8S)] Helm install Grafana Loki to deploy a log aggregation system within Kubernetes (K8S)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/21/Kubernetes-K8S/Deploy-Weave-Scope-to-provide-a-visualization-and-monitoring-tool-for-Kubernetes-K8S/" rel="next" title="[Kubernetes (K8S)] Deploy Weave Scope to provide a visualization and monitoring tool for Kubernetes (K8S)">
+      [Kubernetes (K8S)] Deploy Weave Scope to provide a visualization and monitoring tool for Kubernetes (K8S) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CloudoLife</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">325k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">4:56</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener external nofollow noreferrer" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('#gitalk-container', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'b1c6b5d7b5cb278e4f21',
+      clientSecret: '8f0215ca3b1b52b0655c618d7a5f1abea452de21',
+      repo        : 'gitalk.CloudoLife.github.io',
+      owner       : 'CloudoLife',
+      admin       : ['benjamincloudolife'],
+      id          : '28b548efa24ebafba2ef3e8d06c1955d',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
